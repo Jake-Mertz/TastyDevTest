@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TastyDevTeset</title>
+  <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="container" id="container">
+    <div class="circle" id="circle"></div>
+  </div>
+
+  <script>
+    const circle = document.getElementById('circle');
+    const container = document.getElementById('container');
+
+      let circleAngle = window.getComputedStyle(circle).getPropertyValue('--circleAngle');
+      let containerAngle = window.getComputedStyle(container).getPropertyValue('--containerAngle');
+
+    window.addEventListener('mousemove', () => {
+        let currentValue = parseInt(circleAngle.split("deg"));
+        let newValue = currentValue + 1;
+        circleAngle = newValue + "deg";
+        document.documentElement.style.setProperty("--circleAngle", circleAngle);
+
+      let currentValue2 = parseInt(containerAngle.split("deg"));
+      let newValue2 = currentValue2 - 1;
+      containerAngle = newValue2 + "deg";
+      document.documentElement.style.setProperty("--containerAngle", containerAngle);
+      });
+
+
+  </script>
+</body>
+
+</html>
